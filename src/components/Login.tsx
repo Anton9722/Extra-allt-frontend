@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Login() {
+function Login({ goToSignup, onLogin }: { goToSignup: (showSignup: boolean) => void, onLogin: (id: string) => void }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -12,6 +12,10 @@ function Login() {
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
+    }
+
+    const handleClick = () => {
+        goToSignup(false)
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,18 +35,24 @@ function Login() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             setLoginResponse(data.message)
+            if(data.success) {
+                onLogin(data.userId)
+            }
         })
     }
 
     return (
+        <>
         <form onSubmit={handleSubmit}>
+            <h3>Login</h3>
             <input type="text" placeholder="Username" value={username} onChange={handleUsernameChange} required></input>
             <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required></input>
             <button>Login</button>
             <p>{loginResponse}</p>
         </form>
+        <a onClick={handleClick}>Don't have an account?</a>
+        </>
     )
 }
 
