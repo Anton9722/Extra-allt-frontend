@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Signup() {
+function Signup({ goToLogin }: { goToLogin: (showLogin: boolean) => void }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -12,6 +12,10 @@ function Signup() {
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
+    }
+
+    const handleClick = () => {
+        goToLogin(true)
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,6 +49,7 @@ function Signup() {
             <button>Create</button>
         </form>
         <p>{signupResponse}</p>
+        <a onClick={handleClick}>Already have an account?</a>
         </div>
     )
 }
