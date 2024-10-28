@@ -4,13 +4,15 @@ import 'brace/mode/java';
 import 'brace/theme/monokai';
 import '../style.css';
 
-function Problem1({ accountId }: { accountId: string }) {
+function Problem1({ accountId }: { accountId: string}) {
     console.log(accountId);
     
 
     const [displayResult, setDisplayResult] = useState("");
 
     const editorRef = useRef<AceEditor>(null);
+
+
 
     const runCode = () => {
 
@@ -43,6 +45,18 @@ function Problem1({ accountId }: { accountId: string }) {
         .then(res => res.text())
         .then(data => {
             setDisplayResult(data)
+            if(data == "Correct!"){
+                fetch("https://goldfish-app-9c2tv.ondigitalocean.app/user/update-points", {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        points: 5,
+                        userId: accountId
+                    })
+                })
+            }    
         })
     }
 

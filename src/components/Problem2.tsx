@@ -44,12 +44,24 @@ function Problem2({ accountId }: { accountId: string }) {
         .then(res => res.text())
         .then(data => {
             setDisplayResult(data)
+            if(data == "Correct!"){
+                fetch("https://goldfish-app-9c2tv.ondigitalocean.app/user/update-points", {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        points: 10,
+                        userId: accountId
+                    })
+                })
+            }
         })
     }
 
     return (
         <div className="editor-div">
-            <h1>Sum of a list</h1>
+            <h1>Summan av lista</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"

@@ -27,6 +27,7 @@ function ProblemsList () {
             <Link to="/problem7">Problem 7</Link>
           </li>
         </ul>
+        <Link to="/leaderboard">Leaderboard</Link>
       </div>
     )
 }

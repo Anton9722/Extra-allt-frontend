@@ -10,6 +10,7 @@ import Problem4 from './components/Problem4';
 import Problem5 from './components/Problem5';
 import Problem6 from './components/Problem6';
 import Problem7 from './components/Problem7';
+import Leaderboard from './components/leaderboard';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
               <Route path="/problem5" element={<Problem5 accountId={accountId} />} />
               <Route path="/problem6" element={<Problem6 accountId={accountId} />} />
               <Route path="/problem7" element={<Problem7 accountId={accountId} />} />
+              <Route path="/leaderboard" element={<Leaderboard accountId={accountId}/>} />
             </Routes>
           </>
         )}
