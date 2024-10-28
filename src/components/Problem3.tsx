@@ -44,6 +44,18 @@ function Problem3({ accountId }: { accountId: string }) {
         .then(res => res.text())
         .then(data => {
             setDisplayResult(data)
+            if(data == "Correct!"){
+                fetch("https://goldfish-app-9c2tv.ondigitalocean.app/user/update-points", {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        points: 15,
+                        userId: accountId
+                    })
+                })
+            }
         })
     }
 
