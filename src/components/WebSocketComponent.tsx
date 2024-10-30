@@ -5,11 +5,10 @@ import { Stomp } from '@stomp/stompjs';
 const WebSocketComponent: React.FC = () => {
     const [messages, setMessages] = useState<string[]>([]);
     const [inputValue, setInputValue] = useState<string>('');
-    const stompClientRef = useRef<any>(null); // för att hålla STOMP-klienten
+    const stompClientRef = useRef<any>(null);
 
     useEffect(() => {
-        // Initiera SockJS och STOMP
-        const socket = new SockJS("http://localhost:8080/websocket");
+        const socket = new SockJS("https://goldfish-app-9c2tv.ondigitalocean.app/websocket");
         const stompClient = Stomp.over(socket);
         stompClientRef.current = stompClient;
 
@@ -29,7 +28,7 @@ const WebSocketComponent: React.FC = () => {
     const sendMessage = () => {
         if (inputValue) {
             stompClientRef.current.send("/app/chat", {}, JSON.stringify({ content: inputValue }));
-            setInputValue(''); // Töm inputfältet efter att ha skickat meddelandet
+            setInputValue('');
         }
     };
 
