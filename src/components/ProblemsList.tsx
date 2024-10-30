@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import WebSocketComponent from "./WebSocketComponent"
 
 function ProblemsList () {
     return(
@@ -28,6 +29,7 @@ function ProblemsList () {
           </li>
         </ul>
         <Link to="/leaderboard">Leaderboard</Link>
+        <WebSocketComponent></WebSocketComponent>
       </div>
     )
 }
