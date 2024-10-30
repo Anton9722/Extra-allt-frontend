@@ -8,8 +8,28 @@ function Problem5({ accountId }: { accountId: string }) {
     console.log(accountId);
 
     const [displayResult, setDisplayResult] = useState("");
+    const [displayHelpMe, setDisplayHelpMe] = useState("");
 
     const editorRef = useRef<AceEditor>(null);
+
+    const helpMe = () => {
+        let userCode = editorRef.current?.editor.getValue();
+        fetch("https://goldfish-app-9c2tv.ondigitalocean.app/help-me", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                systemDescription: "Du är en AI-assistent som hjälper användaren att lösa ett specifikt kodningsproblem. Problemet de arbetar på går ut på att skapa en funktion som tar en lista av heltal och genererar en ny lista med summorna av varje unik parbildning av de ursprungliga elementen. Målet är att resultatet ska vara en lista med endast unika summor. Användaren kommer att skicka sin kod till dig, och din uppgift är att hjälpa dem att förstå och felsöka sin lösning utan att ge direkta svar. Istället ska du guida dem steg för steg i rätt riktning, ge förklaringar om varför vissa tillvägagångssätt fungerar och varför andra inte gör det, samt hjälpa dem att förstå hur de kan identifiera unika parsummor korrekt.",
+                prompt: userCode
+            })
+        })
+        .then(res => res.text())
+        .then(data => {
+            console.log(data);
+            setDisplayHelpMe(data);
+        })
+    }
 
     const runCode = () => {
 
@@ -74,6 +94,10 @@ function Problem5({ accountId }: { accountId: string }) {
             />
             <button className="btn" onClick={runCode}>Run code</button>
             <p id="response-text">{displayResult}</p>
+            <div>
+                <button onClick={helpMe}>Hjälp mig</button>
+                <div>{displayHelpMe}</div>
+            </div>
         </div>
     );
 }
