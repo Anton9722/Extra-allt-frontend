@@ -80,8 +80,19 @@ function Problem3({ accountId }: { accountId: string }) {
     }
 
     return (
+        <>
+        <div className="text-div">
+        <h1>Problem: Ta bort dubbletter</h1>
+        <h4>Värde - 15 poäng</h4>
+        <h2>Beskrivning:</h2>
+        <p>Implementera en funktion <code>public List&lt;Integer&gt; removeDuplicates(List&lt;Integer&gt; numbers)</code> som tar emot en lista av heltal (<code>Integer</code>) och returnerar en ny lista med alla unika nummer, utan några dubbletter. Din funktion ska säkerställa att varje heltal endast förekommer en gång i den returnerade listan.</p>
+        <ul>
+            <li>Den returnerade listan ska behålla den ordning som de unika numren först förekom i den ursprungliga listan.</li>
+        </ul>
+        <pre><code>removeDuplicates(Arrays.asList(1, 2, 2, 3, 4, 4, 5));  //ska returnerar [1, 2, 3, 4, 5]</code></pre>
+
+        </div>
         <div className="editor-div">
-            <h1>Ta bort dubbletter</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"
@@ -92,13 +103,14 @@ function Problem3({ accountId }: { accountId: string }) {
                 height="300px" 
                 defaultValue={`public List<Integer> removeDuplicates(List<Integer> numbers) {\n    \n}`}
             />
-            <button className="btn" onClick={runCode}>Run code</button>
-            <p id="response-text">{displayResult}</p>
+            <button className="runcodebtn" onClick={runCode}>Kör kod</button>
+            <p className="response-text">{displayResult}</p>
             <div>
-                <button onClick={helpMe}>Hjälp mig</button>
-                <div>{displayHelpMe}</div>
+                <button className="btn" onClick={helpMe}>Hjälp mig</button>
+                <p className="displayMessage">{displayHelpMe}</p>
             </div>
         </div>
+        </>
         
     );
 }

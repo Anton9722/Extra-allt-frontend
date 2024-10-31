@@ -14,9 +14,9 @@ function Leaderboard({ accountId }: { accountId: string}) {
 
     return (
         <div>
-            <ul>
+            <ul id="leaderboardul">
                 {users.map((user) => (
-                    <li key={user.id || user.username}><h4>{user.username} {user.points}</h4></li> 
+                    <li key={user.id || user.username}><h4>{user.username}: {user.points}</h4></li> 
                 ))}
             </ul>
         </div>

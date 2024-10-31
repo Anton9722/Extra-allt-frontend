@@ -80,8 +80,16 @@ function Problem2({ accountId }: { accountId: string }) {
     }
 
     return (
+        <>
+            <div className="text-div">
+            <h1>Problem: Summan av lista</h1>
+            <h4>Värde - 10 poäng</h4>
+            <h2>Beskrivning:</h2>
+            <p>Implementera en funktion <code>public int sumList(List&lt;Integer&gt; numbers)</code> som tar emot en lista av heltal (<code>Integer</code>) och returnerar summan av alla element i listan. Din funktion ska utföra additionen av varje element och returnera resultatet som ett heltal.</p>
+            <h2>Exempel:</h2>
+            <pre><code>sumList(Arrays.asList(1, 2, 3, 4));  // returnerar 10</code></pre>
+            </div>
         <div className="editor-div">
-            <h1>Summan av lista</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"
@@ -92,13 +100,14 @@ function Problem2({ accountId }: { accountId: string }) {
                 height="300px" 
                 defaultValue={`public int sumList(List<Integer> numbers) {\n    \n}`}
             />
-            <button className="btn" onClick={runCode}>Run code</button>
-            <p id="response-text">{displayResult}</p>
+            <button className="runcodebtn" onClick={runCode}>Kör kod</button>
+            <p className="response-text">{displayResult}</p>
             <div>
-                <button onClick={helpMe}>Hjälp mig</button>
-                <div>{displayHelpMe}</div>
+                <button className="btn" onClick={helpMe}>Hjälp mig</button>
+                <p className="displayMessage">{displayHelpMe}</p>
             </div>
         </div>
+        </>
     );
 }
 

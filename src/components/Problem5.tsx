@@ -80,8 +80,18 @@ function Problem5({ accountId }: { accountId: string }) {
     }
 
     return (
+        <>
+        <div className="text-div">
+            <h1>Problem: Unika summor av parbildningar</h1>
+            <h4>Värde - 25 poäng</h4>
+            <h2>Beskrivning:</h2>
+            <p>Implementera en funktion <code>public static List&lt;Integer&gt; uniqueSums(List&lt;Integer&gt; numbers)</code> som tar emot en lista av heltal (<code>Integer</code>) och genererar en ny lista med summorna av varje unik parbildning av de ursprungliga elementen. Målet är att resultatet ska vara en lista med endast unika summor.</p>
+            <pre><code>uniqueSums(Arrays.asList(1, 2, 3));  //ska returnerar [3, 4, 5]</code></pre>
+            <pre><code>uniqueSums(Arrays.asList(1, 2, 3, 4));  // ska returnerar [3, 4, 5, 6, 7, 8]
+            </code></pre>
+
+        </div>
         <div className="editor-div">
-            <h1>Lista av unika summor</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"
@@ -92,13 +102,14 @@ function Problem5({ accountId }: { accountId: string }) {
                 height="300px" 
                 defaultValue={`public static List<Integer> uniqueSums(List<Integer> numbers) {\n    \n}`}
             />
-            <button className="btn" onClick={runCode}>Run code</button>
-            <p id="response-text">{displayResult}</p>
+            <button className="runcodebtn" onClick={runCode}>Kör kod</button>
+            <p className="response-text">{displayResult}</p>
             <div>
-                <button onClick={helpMe}>Hjälp mig</button>
-                <div>{displayHelpMe}</div>
+                <button className="btn" onClick={helpMe}>Hjälp mig</button>
+                <p className="displayMessage">{displayHelpMe}</p>
             </div>
         </div>
+        </>
     );
 }
 

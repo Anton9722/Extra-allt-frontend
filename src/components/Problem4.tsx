@@ -81,8 +81,18 @@ function Problem4({ accountId }: { accountId: string }) {
     }
 
     return (
+        <>
+        <div className="text-div">
+        <h1>Problem: Näst största talet</h1>
+        <h4>Värde - 20 poäng</h4>
+        <h2>Beskrivning:</h2>
+        <p>Implementera en funktion <code>public Integer findSecondLargest(List&lt;Integer&gt; numbers)</code> som tar emot en lista av heltal (<code>Integer</code>) och returnerar det näst största talet i listan. Collections är importerat och du får använda dig av det</p>
+        <h2>Exempel:</h2>
+        <pre><code>findSecondLargest(Arrays.asList(3, 5, 1, 4, 2));  // ska returnerar 4</code></pre>
+
+
+        </div>
         <div className="editor-div">
-            <h1>Näst största talet</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"
@@ -91,15 +101,16 @@ function Problem4({ accountId }: { accountId: string }) {
                 editorProps={{ $blockScrolling: true }}
                 width="100%"
                 height="300px" 
-                defaultValue={`public String findSecondLargest(List<Integer> numbers) {\n    \n}`}
+                defaultValue={`public Integer findSecondLargest(List<Integer> numbers) {\n    \n}`}
             />
-            <button className="btn" onClick={runCode}>Run code</button>
-            <p id="response-text">{displayResult}</p>
+            <button className="runcodebtn" onClick={runCode}>Kör kod</button>
+            <p className="response-text">{displayResult}</p>
             <div>
-                <button onClick={helpMe}>Hjälp mig</button>
-                <div>{displayHelpMe}</div>
+                <button className="btn" onClick={helpMe}>Hjälp mig</button>
+                <p className="displayMessage">{displayHelpMe}</p>
             </div>
         </div>
+        </>
     );
 }
 

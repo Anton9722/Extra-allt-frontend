@@ -81,8 +81,19 @@ function Problem1({ accountId }: { accountId: string}) {
     }
 
     return (
+        <>
+        <div className="text-div">
+            <h1>Problem: Addera</h1>
+            <h4>Värde - 5 poäng</h4>
+            <h2>Beskrivning:</h2>
+            <p>Implementera en funktion <code>add</code> som tar emot två heltal (<code>int</code>), <code>x</code> och <code>y</code>, och returnerar summan av dessa två tal. Din funktion ska utföra additionen och returnera resultatet som ett heltal.</p>
+            <h2>Specifikationer:</h2>
+            <ul>
+                <li>Den tar emot två parametrar, <code>x</code> och <code>y</code>, båda av typen <code>int</code>.</li>
+                <li>Funktionen ska returnera summan av <code>x</code> och <code>y</code> som en <code>int</code>.</li>
+            </ul>
+        </div>
         <div className="editor-div">
-            <h1>Add two numbers</h1>
             <AceEditor
                 ref={editorRef}
                 mode="java"
@@ -93,13 +104,17 @@ function Problem1({ accountId }: { accountId: string}) {
                 height="300px" 
                 defaultValue={`public int add(int x, int y) {\n    \n}`}
             />
-            <button className="btn" onClick={runCode}>Run code</button>
-            <p id="response-text">{displayResult}</p>
             <div>
-                <button onClick={helpMe}>Hjälp mig</button>
-                <div>{displayHelpMe}</div>
+
+            </div>
+            <button className="runcodebtn" onClick={runCode}>Kör kod</button>
+            <p className="response-text">{displayResult}</p>
+            <div>
+                <button className="btn" onClick={helpMe}>Hjälp mig</button>
+                <p className="displayMessage">{displayHelpMe}</p>
             </div>
         </div>
+        </>
     );
 }
 
