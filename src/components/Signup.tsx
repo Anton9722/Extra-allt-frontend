@@ -42,14 +42,14 @@ function Signup({ goToLogin }: { goToLogin: (showLogin: boolean) => void }) {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
-            <h3>Create account</h3>
-            <input type="text" placeholder="Username" value={username} onChange={handleUsernameChange} required></input>
-            <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required></input>
-            <button>Create</button>
+        <form className="loginAndSignupForm" onSubmit={handleSubmit}>
+            <h1 className="loginsignuptitle">Create account</h1>
+            <input className="loginAndSignUpInput" type="text" placeholder="Username" value={username} onChange={handleUsernameChange} required></input>
+            <input className="loginAndSignUpInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required></input>
+            <button className="btn" id="signupbtn">Create</button>
+            <p>{signupResponse}</p>
+            <a className="loginsignupswitch" onClick={handleClick}>Already have an account?</a>
         </form>
-        <p>{signupResponse}</p>
-        <a onClick={handleClick}>Already have an account?</a>
         </div>
     )
 }

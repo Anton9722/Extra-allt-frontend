@@ -1,6 +1,188 @@
-.editor-div {
-    width: 500px;
+body {
+    font-family: "Roboto Mono", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
+
 .btn {
-    background-color:gray;
+    background-color: #A1FD65;
+    color: black;
+}
+
+.loginAndSignupForm{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 500px;
+    border-radius: 5px;
+    border: 2px solid rgb(34, 34, 34);
+}
+
+#chatinput{
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
+.loginAndSignUpInput {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: "Roboto Mono", sans-serif;
+
+    padding: 6px 12px;
+    background: rgb(38, 38, 43);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 20px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+}
+
+#loginbtn{
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+#signupbtn {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.loginsignupswitch {
+    color: #A1FD65;
+    margin-bottom: 10px;
+}
+.loginsignupswitch:hover {
+    cursor: pointer;
+    color: #69a541;
+}
+
+#problemlistul{
+    list-style-type: none;
+}
+
+#problemlistul li a {
+    color: #A1FD65;
+}
+
+#problemlistul li a:hover {
+    cursor: pointer;
+    color: #69a541;
+    border-bottom: 2px solid #A1FD65;
+}
+
+#leaderboardlink{
+    color: #A1FD65;
+}
+
+#leaderboardlink:hover{
+    cursor: pointer;
+    color: #69a541;
+    border-bottom: 2px solid #A1FD65;
+}
+
+#chatdiv {
+    background-color: rgb(14, 14, 14);
+    margin-top: 40px;
+    border: 2px solid;
+    border-color: rgb(45, 45, 45);
+}
+
+#chatbtn {
+    background-color:#A1FD65;
+    margin-right: 10px;
+}
+
+#chatcontainer {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color:black;
+    border-radius: 10px;
+}
+
+#chatul {
+    list-style-type: none;
+    color: #A1FD65;
+}
+
+#chatul li {
+    margin-top: 4px;
+}
+
+.text-div{
+    width: 650px;
+}
+.editor-div{
+    margin-top: 30px;
+    width: 650px;
+}
+
+.runcodebtn{
+    background-color: #A1FD65;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.displayMessage {
+    border-radius: 3px;
+    padding: 10px;
+    color: #A1FD65;
+}
+
+.response-text{
+    color: #A1FD65;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#leaderboardul {
+    list-style-type: none;
+}
+
+#leaderboardul li {
+    font-size: 20px;
+    color: #A1FD65;
+}
+
+#chatLink {
+    color: #A1FD65;
+}
+
+#chatLink:hover {
+    cursor: pointer;
+    color: #69a541;
+    border-bottom: 2px solid #A1FD65;
 }

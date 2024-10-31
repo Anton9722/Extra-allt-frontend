@@ -33,19 +33,23 @@ const WebSocketComponent: React.FC = () => {
     };
 
     return (
-        <div>
-            <ul>
-                {messages.map((message, index) => (
-                    <li key={index}>{message}</li>
-                ))}
-            </ul>
+        <div id="chatdiv">
+            <h3>Anonym chat</h3>
+            <div id="chatcontainer">
+                <ul id="chatul">
+                    {messages.map((message, index) => (
+                        <li className="chatli" key={index}>{message}</li>
+                    ))}
+                </ul>
+            </div>
             <input 
+                id="chatinput"
                 type="text" 
                 value={inputValue} 
                 onChange={(e) => setInputValue(e.target.value)} 
                 placeholder="Skriv ett meddelande"
             />
-            <button onClick={sendMessage}>Skicka</button>
+            <button id="chatbtn" onClick={sendMessage}>Skicka</button>
         </div>
     );
 };
